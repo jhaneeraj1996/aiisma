@@ -1,0 +1,8 @@
+var postUri = Uri.parse('serverURL');
+var request = new http.MultipartRequest("POST", postUri);
+request.fields['mobileNO'] = "";
+var response = await request.send();
+print(response.statusCode);
+response.stream.transform(utf8.decoder).listen((value) {
+        print(value);
+});
